@@ -21,11 +21,10 @@
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
-        {{# each restaurants}}
-        <a href="/restaurants/{{this.id}}" class="text-secondary">
+        {{# each restaurantLists}}
+        <a href="/restaurants/{{this._id}}" class="text-secondary">
           <div class="card mb-3">
-            <img class="card-img-top" src="{{this.image}}"
-              alt="{{this.name}}">
+            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>
 
@@ -44,6 +43,80 @@
         {{/each}}
 
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Restaurant Modal -->
+<div class="modal fade restaurantAdd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content new-page">
+
+      <div class="modal-header ">
+        <h3 class="modal-title" id="restaurant-modal-title">新增餐廳</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form id="form" action="./create" method="POST">
+        <div class="modal-body row" id="restaurant-modal-body">
+          <div class="form-group col-6">
+            <label for="name">姓名:</label>
+            <input class="modal-input" type="text" id="name" placeholder="請輸入名字 ..." required>
+          </div>
+
+          <div class="form-group col-6">
+            <label for="phone">電話號碼:</label>
+            <input class="modal-input" type="text" id="phone" placeholder="請輸入電話號碼 ...">
+          </div>
+
+          <div class="form-group col-6">
+            <label for="category">類別</label>
+            <input list="category" class="form-control" placeholder="日本料理">
+            <datalist id="category">
+              <option>日本料理</option>
+              <option>中東料理</option>
+              <option>義式餐廳</option>
+              <option>美式</option>
+              <option>酒吧</option>
+              <option>咖啡</option>
+            </datalist>
+          </div>
+
+          <div class="form-group col-2">
+            <label for="rating">Rate:</label>
+            <input type="number" class="form-control" id="rating" min="0" max"5.0" step="0.1" value="3">
+          </div>
+
+          <div class="form-group col-12">
+            <label for="location">地址:</label>
+            <input class="modal-input" type="text" id="location" placeholder="請填寫地址 ...">
+          </div>
+
+          <div class="form-group col-12">
+            <label for="google_map">Goole_map:</label>
+            <input class="modal-input" type="text" id="google_map" placeholder="例: https://www.google.com.tw/maps ...">
+          </div>
+
+          <div class="form-group col-12">
+            <label for="image">圖片:</label>
+            <input class="modal-input" type="text" id="image" placeholder="請上傳圖片網址 ...">
+          </div>
+
+          <div class="form-group col-12 ">
+            <label for="description" class="form-label">餐廳描述</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" input="submit" class="btn btn-primary">Add Restaurant</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
