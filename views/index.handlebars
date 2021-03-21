@@ -24,19 +24,30 @@
         {{# each restaurantLists}}
         <a href="/restaurants/{{this._id}}" class="text-secondary">
           <div class="card mb-3">
+            <form id="index-delete" action="/restaurants/{{this._id}}/delete" method="POST">
+              <button type="submit" class="close" id="restaurantDelete">
+                <span aria-hidden="true">×</span>
+              </button>
+            </form>
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
-            <div class="card-body p-3">
-              <h6 class="card-title mb-1">{{this.name}}</h6>
+            <div class="bottom-body d-flex">
+              <div class="card-body p-3  ">
+                <h6 class="card-title mb-1">{{this.name}}</h6>
 
-              <div class="restaurant-category mb-1">
-                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+                <div class="restaurant-category mb-1">
+                  <i class="fas fa-utensils pr-2"></i> {{this.category}}
+                </div>
+
+                <span class="badge badge-pill badge-danger font-weight-normal">
+                  {{this.rating}}
+                  <i class="fas fa-star fa-xs"></i>
+                </span>
+
               </div>
-
-              <span class="badge badge-pill badge-danger font-weight-normal">
-                {{this.rating}}
-                <i class="fas fa-star fa-xs"></i>
-              </span>
-
+              <a class="edit-body m-auto" href="/restaurant/edit/{{this._id}}">
+                <button id="edit" type="submit" class="btn btn-info m-auto" data-toggle="modal"
+                  data-target=".restaurantAdd-modal-lg">編輯餐廳</button>
+              </a>
             </div>
           </div>
         </a>
@@ -59,64 +70,71 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <form id="form" action="./create" method="POST">
-        <div class="modal-body row" id="restaurant-modal-body">
-          <div class="form-group col-6">
-            <label for="name">姓名:</label>
-            <input class="modal-input" type="text" id="name" placeholder="請輸入名字 ..." required>
-          </div>
+        <form id="form" action="/create" method="POST">
+          <div class="modal-body row" id="restaurant-modal-body">
+            <div class="form-group col-6">
+              <label for="name">姓名:</label>
+              <input class="modal-input" type="text" id="name" name="name"  placeholder="請輸入名字 ..."
+                required>
+            </div>
 
-          <div class="form-group col-6">
-            <label for="phone">電話號碼:</label>
-            <input class="modal-input" type="text" id="phone" placeholder="請輸入電話號碼 ...">
-          </div>
+            <div class="form-group col-6">
+              <label for="phone">電話號碼:</label>
+              <input class="modal-input" type="text" id="phone" name="phone" 
+                placeholder="請輸入電話號碼 ...">
+            </div>
 
-          <div class="form-group col-6">
-            <label for="category">類別</label>
-            <input list="category" class="form-control" placeholder="日本料理">
-            <datalist id="category">
-              <option>日本料理</option>
-              <option>中東料理</option>
-              <option>義式餐廳</option>
-              <option>美式</option>
-              <option>酒吧</option>
-              <option>咖啡</option>
-            </datalist>
-          </div>
+            <div class="form-group col-6">
+              <label for="category">類別</label>
+              <input list="category" class="form-control" name="category"  placeholder="日本料理">
+              <datalist id="category">
+                <option>日本料理</option>
+                <option>中東料理</option>
+                <option>義式餐廳</option>
+                <option>美式</option>
+                <option>酒吧</option>
+                <option>咖啡</option>
+              </datalist>
+            </div>
 
-          <div class="form-group col-2">
-            <label for="rating">Rate:</label>
-            <input type="number" class="form-control" id="rating" min="0" max"5.0" step="0.1" value="3">
-          </div>
+            <div class="form-group col-2">
+              <label for="rating">Rate:</label>
+              <input type="number" class="form-control" id="rating" name="rating"  min="0"
+                max="5.0" step="0.1" value="3">
+            </div>
 
-          <div class="form-group col-12">
-            <label for="location">地址:</label>
-            <input class="modal-input" type="text" id="location" placeholder="請填寫地址 ...">
-          </div>
+            <div class="form-group col-12">
+              <label for="location">地址:</label>
+              <input class="modal-input" type="text" id="location" name="location" 
+                placeholder="請填寫地址 ...">
+            </div>
 
-          <div class="form-group col-12">
-            <label for="google_map">Goole_map:</label>
-            <input class="modal-input" type="text" id="google_map" placeholder="例: https://www.google.com.tw/maps ...">
-          </div>
+            <div class="form-group col-12">
+              <label for="google_map">Goole_map:</label>
+              <input class="modal-input" type="text" id="google_map" name="google_map" 
+                placeholder="例: https://www.google.com.tw/maps ...">
+            </div>
 
-          <div class="form-group col-12">
-            <label for="image">圖片:</label>
-            <input class="modal-input" type="text" id="image" placeholder="請上傳圖片網址 ...">
-          </div>
+            <div class="form-group col-12">
+              <label for="image">圖片:</label>
+              <input class="modal-input" type="text" id="image" name="image" 
+                placeholder="請上傳圖片網址 ...">
+            </div>
 
-          <div class="form-group col-12 ">
-            <label for="description" class="form-label">餐廳描述</label>
-            <textarea class="form-control" id="description" rows="3"></textarea>
-          </div>
+            <div class="form-group col-12 ">
+              <label for="description" class="form-label">餐廳描述</label>
+              <textarea class="form-control" id="description" name="description" 
+                rows="3"></textarea>
+            </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <button type="button" input="submit" class="btn btn-primary">Add Restaurant</button>
-        </div>
-      </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+        </form>
     </div>
   </div>
 </div>

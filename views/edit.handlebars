@@ -1,0 +1,69 @@
+<div class="edit-content container new-page edit-page">
+  <div class="edit-header ">
+    <h1 class="edit-title " id="restaurant-edit-title">編輯餐廳</h1>
+
+  </div>
+  <form id="form" action="/restaurants/edit/{{restaurantList._id}}" method="POST">
+    <div class="edit-body row" id="restaurant-edit-body">
+      <div class="form-group col-6">
+        <label for="name">姓名:</label>
+        <input class="edit-input" type="text" id="name" name="name" value="{{restaurantList.name}}" placeholder="請輸入名字 ..."
+          required>
+      </div>
+
+      <div class="form-group col-6">
+        <label for="phone">電話號碼:</label>
+        <input class="edit-input" type="text" id="phone" name="phone" value="{{restaurantList.phone}}" placeholder="請輸入電話號碼 ...">
+      </div>
+
+      <div class="form-group col-6">
+        <label for="category">類別</label>
+        <input list="category" class="form-control" name="category" value="{{restaurantList.category}}" placeholder="日本料理">
+        <datalist id="category">
+          <option>日本料理</option>
+          <option>中東料理</option>
+          <option>義式餐廳</option>
+          <option>美式</option>
+          <option>酒吧</option>
+          <option>咖啡</option>
+        </datalist>
+      </div>
+
+      <div class="form-group col-2">
+        <label for="rating">Rate:</label>
+        <input type="number" class="form-control" id="rating" name="rating" value="{{restaurantList.rating}}" min="0" max"5.0"
+          step="0.1" value="3">
+      </div>
+
+      <div class="form-group col-12">
+        <label for="location">地址:</label>
+        <input class="edit-input" type="text" id="location" name="location" value="{{restaurantList.location}}"
+          placeholder="請填寫地址 ...">
+      </div>
+
+      <div class="form-group col-12">
+        <label for="google_map">Goole_map:</label>
+        <input class="edit-input" type="text" id="google_map" name="google_map" value="{{restaurantList.google_map}}"
+          placeholder="例: https://www.google.com.tw/maps ...">
+      </div>
+
+      <div class="form-group col-12">
+        <label for="image">圖片:</label>
+        <input class="edit-input" type="text" id="image" name="image" value="{{restaurantList.image}}" placeholder="請上傳圖片網址 ...">
+      </div>
+
+      <div class="form-group col-12 ">
+        <label for="description" class="form-label">餐廳描述</label>
+        <textarea class="form-control" type="text" id="description"  name="description" 
+          rows="3">{{restaurantList.description}}</textarea>
+      </div>
+
+    </div>
+    <div class="edit-footer d-flex justify-content-end mr-5 mb-2">
+      <a href="/">
+        <button type="button" class="btn btn-secondary mr-3 ">Close</button></a>
+      </button>
+      <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+  </form>
+</div>

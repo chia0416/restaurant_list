@@ -56,6 +56,7 @@ header {
 
 .card img{
   height: 180px;
+  position: relative;
 }
 
 .card-title{
@@ -78,23 +79,47 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* modal 頁面*/
+/* modal,編輯 頁面*/
 .new-page{
+  max-width: 790px;
   margin: auto;
   background-color: rgb(192, 192, 192);
   border-radius: 30px;
   border: solid 3px white;
 }
 
+.edit-page{
+  margin-top: -200px;
+}
+
 .modal-title{
   padding: 10px;
 }
 
-.modal-input{
+.edit-title{
+  text-align: center;
+  margin:8px 0 8px;
+  color: aquamarine;
+}
+
+edit-header{
+  border-bottom-color: bisque;
+}
+
+.modal-input , .edit-input {
     width: 100%;
     height: 65%;
     border: white;
     border-radius: 0.25rem;
+}
+
+
+#restaurantDelete{
+  position: absolute;
+  z-index: 1;
+  padding: 6px 10px;
+  right: -4px;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 992px) {
