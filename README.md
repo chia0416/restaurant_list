@@ -1,5 +1,5 @@
 # Restaurant_list
-一個使用 Node.js + Express 打造的餐廳美食網站，提供使用者可依照餐廳名稱與類別進行搜尋。
+一個使用 Node.js + Express 打造的餐廳美食網站，提供使用者可依照餐廳名稱與類別進行搜尋及排序。
 
 # 專案畫面
 ![image](https://github.com/chia0416/restaurant_list/blob/main/Home_Page.jpg)
@@ -12,6 +12,8 @@
 <li>使用者可以點擊任一餐廳，查看更多餐廳資訊，如餐廳地址、電話與簡介  </li>
 <li>使用者可以依照餐廳名稱或類別進行搜尋  </li>
 <li>新增了"新增"、"修改"、"刪除"功能，並可將資訊傳至資料庫</li>
+<li>新增了"排序"功能</li>
+<li>重購路由器的位置，增加文件的易讀性</li>
 </ol>
 
 # Installing - 專案安裝流程
