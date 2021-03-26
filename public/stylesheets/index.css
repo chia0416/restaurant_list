@@ -20,7 +20,7 @@ header {
   filter: blur(3px);
 }
 
-.search-bar .search-bar-outer {
+.search-bar .search-bar-outer{
   margin: 0 auto;
   max-width: 680px;
   background-color: #fce2cf;
@@ -29,6 +29,11 @@ header {
   border: 0;
   margin-top: -60px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-outer{
+  margin: 0 auto;
+  max-width: 680px;
 }
 
 .search-bar .search-bar-inner h4 {
@@ -122,10 +127,17 @@ edit-header{
   font-size: 2rem;
 }
 
+@media screen and (max-width: 1140px) {
+
+  .card-body-left {
+    max-width: 140px;
+  }
+}
+
 @media screen and (max-width: 992px) {
-  
-  .card img{
-    height: 115px;
+
+  .card-columns { 
+    column-count: 2; 
   }
 }
 
@@ -134,6 +146,7 @@ edit-header{
   .restaurant-show-title {
     font-size: 2rem;
   }
+
 }
 
 @media screen and (max-width: 575px) {
@@ -141,5 +154,6 @@ edit-header{
   .card img{
     height: auto;
   }
-  
+  .card-columns { column-count: 1; 
+  }
 }
