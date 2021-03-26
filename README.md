@@ -8,8 +8,10 @@
 
 # Features - 產品功能
 <ol>
+<li>使用 Node.js + Express + Mongodb 打造的餐廳美食網站 </li>
 <li>使用者可以點擊任一餐廳，查看更多餐廳資訊，如餐廳地址、電話與簡介  </li>
 <li>使用者可以依照餐廳名稱或類別進行搜尋  </li>
+<li>新增了"新增"、"修改"、"刪除"功能，並可將資訊傳至資料庫</li>
 </ol>
 
 # Installing - 專案安裝流程
@@ -36,9 +38,11 @@
 <li>啟動伺服器，執行 app.js 檔案 </li>
 <pre><code>在 Terminal 輸入 nodemon app.js 或者 npm run dev 指令即可</code></pre>
 
+<li>建立種子資料</li>
+<pre><code>在 Terminal 輸入npm run seed 指令</code></pre>
+
 <li>當 terminal 出現以下字樣，表示伺服器已啟動並成功連結 </li>
 <pre><code> Express is running on http://localhost:3000 </code></pre>  
-
   
 現在，你可開啟任一瀏覽器瀏覽器輸入 http://localhost:3000 開始尋找電影囉！
 
