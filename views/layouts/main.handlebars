@@ -22,11 +22,25 @@
         <a class="navbar-brand" href="/">
           <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
             width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
+          {{#if isAuthenticated}} {{user.name}}'s list
+          {{else}}
           我的餐廳清單
+          {{/if}}
         </a>
-        <button type="button" data-toggle="modal" data-target=".restaurantAdd-modal-lg" class="btn btn-outline-info">
-          <i class="fas fa-plus-circle"> 新增餐廳</i>
-        </button>
+        {{#if isAuthenticated}}
+        <div>
+          <button type="button" data-toggle="modal" data-target=".restaurantAdd-modal-lg" class="btn btn-outline-info">
+            <i class="fas fa-plus-circle"> 新增餐廳</i>
+          </button>
+          <a href="/users/logout" method="GET" class="btn btn-outline-info">
+            登出
+          </a>
+        </div>
+        {{else}}
+        <a href="/users/login" method="GET" class="btn btn-outline-info">
+          登入
+          </button>
+          {{/if }}
       </div>
     </nav>
 
@@ -36,12 +50,15 @@
   {{{ body }}}
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
