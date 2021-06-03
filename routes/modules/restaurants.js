@@ -6,9 +6,10 @@ const RestaurantList = require("../../models/restaurant");
 
 //show detail
 router.get("/:id", (req, res) => {
-  const id = req.params.id;
+  const userId = req.user._id
+  const _id = req.params.id;
   console.log('show detail')
-  return RestaurantList.findById(id)
+  return RestaurantList.findOne({ _id, userId })
     .lean()
     .then((restaurantList) => res.render("show", { restaurantList }))
     .catch((error) => console.log(error));
@@ -16,9 +17,10 @@ router.get("/:id", (req, res) => {
 
 //show edit
 router.get("/edit/:id", (req, res) => {
-  const id = req.params.id;
+  const userId = req.user._id
+  const _id = req.params.id;
   console.log('show edit')
-  return RestaurantList.findById(id)
+  return RestaurantList.findOne({ _id, userId })
     .lean()
     .then((restaurantList) => res.render("edit", { restaurantList }))
     .catch((error) => console.log(error));
@@ -36,9 +38,10 @@ router.put("/edit/:id", (req, res) => {
     rating,
     description,
   } = req.body;
-  const id = req.params.id;
+  const _id = req.params.id;
+  const userId = req.user._id
   console.log("show edit ask");
-  return RestaurantList.findById(id)
+  return RestaurantList.findOne({ _id, userId })
     .then((restaurants) => {
       restaurants.name = name;
       restaurants.phone = phone;
@@ -50,12 +53,13 @@ router.put("/edit/:id", (req, res) => {
       restaurants.description = description;
       return restaurants.save();
     })
-    .then(() => res.redirect(`/restaurants/${id}`))
+    .then(() => res.redirect(`/restaurants/${_id}`))
     .catch((error) => console.log(error));
 });
 
 //新增
 router.post("/create", (req, res) => {
+  const userId = req.user._id
   const {
     name,
     category,
@@ -76,6 +80,7 @@ router.post("/create", (req, res) => {
     google_map: google_map,
     rating: rating,
     description: description,
+    userId
   })
     .then(res.redirect("/"))
     .catch((error) => console.log(error));
@@ -83,8 +88,9 @@ router.post("/create", (req, res) => {
 
 //刪除
 router.delete("/:id", (req, res) => {
-  const id = req.params.id;
-  return RestaurantList.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id;
+  return RestaurantList.findOne({ _id, userId})
     .then((restaurant) => restaurant.remove())
     .then(() => res.redirect("/"))
     .catch((error) => console.log(error));
