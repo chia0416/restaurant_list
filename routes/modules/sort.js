@@ -14,10 +14,11 @@ const RestaurantList = require("../../models/restaurant");
 // });
 
 router.get("/:type/:method", (req, res) => {
+  const userId = req.user._id
   const type = req.params.type;
   const method = req.params.method;
   console.log(RestaurantList.name)
-  return RestaurantList.find()
+  return RestaurantList.findOne(userId)
     .sort({ [type]: [method] })
     .lean()
     .then((restaurantLists) => res.render("index", { restaurantLists }))
