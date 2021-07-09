@@ -6,36 +6,36 @@ const restaurantSchema = new Schema({
     required: true
   },
   name_en: {
-    type: String,
+    type: String
   },
   category: {
-    type: String,
+    type: String
   },
   image: {
-    type: String,
+    type: String
   },
   location: {
-    type: String,
+    type: String
   },
   phone: {
-    type: String,
+    type: String
   },
   google_map: {
-    type: String,
+    type: String
   },
   rating: {
     type: String,
     required: true
   },
   description: {
-    type: String,
+    type: String
   },
   userId: {
     type: Schema.Types.ObjectId,
-    ref:'User',
+    ref: 'User',
     index: true,
     required: true
   }
-});
+})
 
 module.exports = mongoose.model('RestaurantList', restaurantSchema)

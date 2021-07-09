@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require('express')
 
-const router = express.Router();
+const router = express.Router()
 
-const RestaurantList = require("../../models/restaurant");
+const RestaurantList = require('../../models/restaurant')
 
 // router.get("/name/asc", (req, res) => {
 //   console.log("sort")
@@ -13,18 +13,18 @@ const RestaurantList = require("../../models/restaurant");
 //     .catch((error) => console.error(error));
 // });
 
-router.get("/:type/:method", (req, res) => {
+router.get('/:type/:method', (req, res) => {
   const userId = req.user._id
-  const type = req.params.type;
-  const method = req.params.method;
+  const type = req.params.type
+  const method = req.params.method
   console.log(RestaurantList.name)
   return RestaurantList.findOne(userId)
     .sort({ [type]: [method] })
     .lean()
-    .then((restaurantLists) => res.render("index", { restaurantLists }))
+    .then((restaurantLists) => res.render('index', { restaurantLists }))
     .catch((error) => {
-      console.log(error);
-    });
-});
+      console.log(error)
+    })
+})
 
-module.exports = router;
+module.exports = router
