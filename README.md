@@ -1,4 +1,4 @@
-# Restaurant_list
+# 餐廳清單(Restaurant_list)
 一個使用 Node.js + Express 打造的餐廳美食網站，提供使用者可依照餐廳名稱與類別進行搜尋及排序。
 
 # 專案畫面
