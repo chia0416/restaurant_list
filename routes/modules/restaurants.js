@@ -8,7 +8,6 @@ const RestaurantList = require('../../models/restaurant')
 router.get('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  console.log('show detail')
   return RestaurantList.findOne({ _id, userId })
     .lean()
     .then((restaurantList) => res.render('show', { restaurantList }))
@@ -19,7 +18,6 @@ router.get('/:id', (req, res) => {
 router.get('/edit/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  console.log('show edit')
   return RestaurantList.findOne({ _id, userId })
     .lean()
     .then((restaurantList) => res.render('edit', { restaurantList }))
@@ -40,7 +38,6 @@ router.put('/edit/:id', (req, res) => {
   } = req.body
   const _id = req.params.id
   const userId = req.user._id
-  console.log('show edit ask')
   return RestaurantList.findOne({ _id, userId })
     .then((restaurants) => {
       restaurants.name = name
@@ -70,7 +67,6 @@ router.post('/create', (req, res) => {
     rating,
     description
   } = req.body
-  console.log('created')
   return RestaurantList.create({
     name: name,
     category: category,

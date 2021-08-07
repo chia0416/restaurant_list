@@ -19,7 +19,10 @@ router.get('/search', (req, res) => {
   const userId = req.user._id
   return RestaurantList.find({
     userId,
-    name: { $regex: keyword, $options: 'i' }
+    $or:[
+     { "name": { $regex: keyword, $options: 'i' }},
+     { "category": { $regex: keyword, $options: 'i' }}
+    ]
   })
     .lean()
     .then((restaurantLists) => res.render('index', { restaurantLists }))
