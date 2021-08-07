@@ -33,18 +33,16 @@
   </div>
 </div>
 
-
-
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
     <div class=" col-12 mx-auto">
       <div class="card-columns">
         {{# each restaurantLists}}
-        <a href="/restaurants/{{this._id}}" class="text-secondary">
-          <div class="card mb-3 ">
+        <div class="card mb-3 ">
+          <a href="/restaurants/{{this._id}}" class="text-secondary">
             <form id="index-delete" action="/restaurants/{{this._id}}?_method=DELETE" method="POST">
-              <button type="submit" class="close" id="restaurantDelete">
+              <button type="submit" class="close" id="restaurantDelete" onclick="return confirmWhileDelete()">
                 <span aria-hidden="true">×</span>
               </button>
             </form>
@@ -67,8 +65,8 @@
                 </a>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
         {{/each}}
 
       </div>
@@ -150,3 +148,9 @@
     </div>
   </div>
 </div>
+
+<script>
+  function confirmWhileDelete() {
+    return confirm("確定要刪除嗎?")
+  }
+</script>
