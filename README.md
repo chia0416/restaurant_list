@@ -1,12 +1,15 @@
 # Restaurant_list
+
 一個使用 Node.js + Express 打造的餐廳美食網站，提供使用者可依照餐廳名稱與類別進行搜尋及排序。
 
 # 專案畫面
+
 ![image](https://github.com/chia0416/restaurant_list/blob/main/Home_Page.jpg)
 
 ![image](https://github.com/chia0416/restaurant_list/blob/main/Search_Page.jpg)
 
 # Features - 產品功能
+
 <ol>
 <li>使用 Node.js + Express + Mongodb 打造的餐廳美食網站 </li>
 <li>使用者可以點擊任一餐廳，查看更多餐廳資訊，如餐廳地址、電話與簡介  </li>
@@ -48,10 +51,19 @@
   
 現在，你可開啟任一瀏覽器瀏覽器輸入 http://localhost:3000 開始尋找電影囉！
 
+### 套件
 
-### Package-工具包
-[Handlebars](https://www.npmjs.com/package/express-handlebars)-把檔案轉換成瀏覽器看得懂的 HTML 檔案才回傳到瀏覽器中的樣板引擎  
-[Bootstrap](https://getbootstrap.com/docs/4.2/getting-started/download/)-前端框架  
-[jQuery](https://getbootstrap.com/docs/4.2/getting-started/download/)-以 JavaScript 來編寫的函式庫　　　　
-<br>[Popper.js](https://popper.js.org/)　　　　
-<br>[nodemon](https://www.npmjs.com/package/nodemon)-自動重啟伺服器，省去開每次改完程式碼後的問題
+  <ul type=disc>
+    <li>"bcryptjs": "^2.4.3"
+    <li>"body-parser": "^1.19.0",
+    <li>"connect-flash": "^0.1.1",
+    <li>"dotenv": "^10.0.0",
+    <li>"express": "^4.17.1",
+    <li>"express-handlebars": "^5.2.1",
+    <li>"express-session": "^1.17.2",
+    <li>"method-override": "^3.0.0",
+    <li>"mongoose": "^5.12.1",
+    <li>"passport": "^0.4.1",
+    <li>"passport-facebook": "^3.0.0",
+    <li>"passport-local": "^1.0.0"
+  </ul>
