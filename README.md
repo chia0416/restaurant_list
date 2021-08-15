@@ -1,8 +1,7 @@
 # Restaurant_list
 
-=======
 # 餐廳清單(Restaurant_list)
->>>>>>> e13eccc448c6f8ad04be6e2e96709f098129ef10
+
 一個使用 Node.js + Express 打造的餐廳美食網站，提供使用者可依照餐廳名稱與類別進行搜尋及排序。
 
 # 專案畫面
@@ -58,9 +57,6 @@
 
 ### 套件
 
-=======
-### 套件
->>>>>>> e13eccc448c6f8ad04be6e2e96709f098129ef10
   <ul type=disc>
     <li>"bcryptjs": "^2.4.3"
     <li>"body-parser": "^1.19.0",
