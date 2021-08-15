@@ -4,16 +4,26 @@
       <h1 class="text-center mt-3">Login</h1>
       {{> message}}
       <form action="/users/login" method="POST">
-        <div class="form-group">
+        <div class="mb-3">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
+          <input type="email" id="email" name="email" class="form-control" value="{{email}}" placeholder=" Enter Email"
+            required>
+          <div id="invalid-feedback" class="invalid-feedback">
+            請輸入信箱
+          </div>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password">
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control" value="{{email}}"
+            placeholder="Enter Password" required>
+          <div id="invalid-feedback" class="invalid-feedback">
+            請輸入密碼
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block"> Login in</button>
-        <a href="/auth/facebook" class="btn btn-info btn-block">Facebook Login</a>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-block"> Login in</button>
+          <a href="/auth/facebook" class="btn btn-info btn-block">Facebook Login</a>
+        </div>
       </form>
       <p class="lead mt-4">
         No Account <a href="/users/register"> Register</a>
@@ -21,3 +31,24 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict';
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      let forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      let validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
