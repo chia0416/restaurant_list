@@ -1,8 +1,7 @@
-# Restaurant_list
-
 # 餐廳清單(Restaurant_list)
 
 一個使用 Node.js + Express 打造的餐廳美食網站，提供使用者可依照餐廳名稱與類別進行搜尋及排序。
+
 
 # 專案畫面
 
@@ -53,7 +52,12 @@
 <li>當 terminal 出現以下字樣，表示伺服器已啟動並成功連結 </li>
 <pre><code> Express is running on http://localhost:3000 </code></pre>  
   
-現在，你可開啟任一瀏覽器瀏覽器輸入 http://localhost:3000 開始尋找電影囉！
+現在，你可開啟任一瀏覽器瀏覽器輸入 http://localhost:3000 開始囉！
+<br>
+  <h2> 測試用帳號 </h2>  
+  帳號： root@example.com
+  <br>
+  密碼： root
 
 ### 套件
 
